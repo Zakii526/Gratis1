@@ -1721,6 +1721,7 @@ await fs.unlinkSync(memek)
 break
 case 'gura':
 case 'gurastick':{
+	reply(mess.wait)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/gura')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1730,6 +1731,7 @@ await fs.unlinkSync(encmedia)
 break
 case 'doge':
 case 'dogestick':{
+	reply(mess.wait)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1739,6 +1741,7 @@ await fs.unlinkSync(encmedia)
 break
 case 'bucinstick':
 case 'bucinp' :{
+	reply(mess.wait)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
@@ -1748,6 +1751,7 @@ await fs.unlinkSync(encmedia)
 break
 case 'patrik':
 case 'patrick': {
+	reply(mess.wait)
 var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/patrik')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
