@@ -10,6 +10,10 @@
     "120363041852922550@g.us": {
       "mute": false,
       "antilink": false
+    },
+    "6281241100804@s.whatsapp.net": {
+      "mute": false,
+      "antilink": false
     }
   },
   "database": {},
@@ -34,5 +38,6 @@
   "others": {
     "vote": []
   },
-  "sticker": {}
+  "sticker": {},
+  "sewa": {}
 }
