@@ -1719,46 +1719,7 @@ memek = await chika.sendImageAsSticker(m.chat, meme, m, { packname: global.packn
 await fs.unlinkSync(memek)
 }
 break
-case 'gura':
-case 'gurastick':{
-	reply(mess.wait)
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/gura')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'doge':
-case 'dogestick':{
-	reply(mess.wait)
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'bucinstick':
-case 'bucinp' :{
-	reply(mess.wait)
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'patrik':
-case 'patrick': {
-	reply(mess.wait)
-var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/patrik')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author })
-await fs.unlinkSync(encmedia)
-}
-break
+
             case 'ebinary': {
             if (!m.quoted.text && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             let { eBinary } = require('./lib/binary')
