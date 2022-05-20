@@ -754,6 +754,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
             case 'tebak': {
+            	reply(' Gemes ini masih sedikit ngebug, Tapi kalau mau coba silahkan')
             	 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		        db.data.users[m.sender].limit -= 1 // -1 limit
                 if (!q) return reply(`Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`)
@@ -1686,7 +1687,7 @@ break
              case 'listonline': case 'liston': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
-                    chika.sendText(m.chat, '═══✪〘 *👥 list online* 〙✪═══' + online.map(v => '├>  @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+                    chika.sendText(m.chat, '═══✪〘 *👥 list online* 〙✪═══\n' + online.map(v => '├>  @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
             case 'sticker': case 's': case 'stickergif': case 'sgif': {
@@ -1747,21 +1748,7 @@ break
 		}
 	    }
 	    break
-	       case 'smeme2':  {
-	        let respond = `Kirim/reply image/sticker dengan caption ${prefix + command} text1|text2`
-	        if (!/image/.test(mime)) throw respond
-            if (!text) throw respond
-	        reply(mess.wait)
-            atas = text.split('|')[0] ? text.split('|')[0] : '-'
-            bawah = text.split('|')[1] ? text.split('|')[1] : '-'
-	        let dwnld = await quoted.download()
-	        let { floNime } = require('./lib/uploader')
-	        let fatGans = await floNime(dwnld)
-	        let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas)}/${encodeURIComponent(bawah)}.png?background=${fatGans.result.url}`
-	        let Riy = await chika.sendImageAsSticker(m.chat, smeme, m, { packname: global.packname, author: global.auhor })
-	        await fs.unlinkSync(Riy)
-            }
-	       break     
+	       
 	        case 'simih': case 'simisimi': {
             if (!q) return reply(`Example : ${prefix + command} text`)
             hm = await fetchJson(api('zenz', '/api/simisimi', { text : text }, 'apikey'))
@@ -3767,7 +3754,7 @@ case 'sound':
 case '😎':
 case 'musik':
 case 'santuy':
-reply('𝗝𝗮𝗻𝗴𝗮𝗻 𝗟𝘂𝗽𝗮 𝗦𝗮𝗻𝘁𝘂𝘆😎'),
+reply('𝗝𝗮𝗻𝗴𝗮𝗻 𝗟𝘂𝗽𝗮 𝗦𝗮𝗻𝘁𝘂𝘆 '),
 setTimeout( () => {
   sound(from)
   }, 1000),
