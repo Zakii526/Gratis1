@@ -7,15 +7,22 @@
 
 //—————「 Menu 」—————//
 exports.menu = (botname, pushname, salam) => {
-	return`Selamat ${salam} kak ${pushname}
+	return`Selamat ${salam} kak ${pushname} 🐦
 
-Saya ${botname}, Bot Ini Adalah Beta Multi-Device WhatsApp.
-Jika Kamu Menemukan Semacam Bug Atau Kesalahan Mohon Dimaklumi Dulu Ya, Lapor Owner Agar Segera Di Perbaiki🐦`
+Saya ${botname}, Siap Membantu anda Kapan saja dan Di manapun 🐦
+Jika Kamu Menemukan Semacam Bug Atau Kesalahan Mohon Dimaklumi  Ya, kalau gak mau sini betumbu kita🗿
+
+Peraturannya Jangan di spam🗿
+gak terima Yok betumbu lagi 🗿
+
+*⏰ Time Server : ${time}*
+
+`
 }
 
 //—————「 List 」—————//
 exports.list = (pushname) => {
-	return`Halo kak ${pushname}, silahkan dipilih list menu dibawah ini`
+	return`Halo kak ${pushname}, silahkan dipilih list menu dibawah ini\n`
 }
 
 //—————「 All Menu 」—————//
@@ -37,7 +44,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}kick @user
   *≻* ${prefix}hidetag 
   *≻* ${prefix}tagall 
-  *≻* ${prefix}antilink [on/off]
+  *≻* ${prefix}antilink [on/off] + (ntralu jg tau)
   *≻* ${prefix}mute [on/off]
   *≻* ${prefix}promote @user
   *≻* ${prefix}demote @user
@@ -92,11 +99,25 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}webtoons 
   *≻* ${prefix}drakor 
   
+          *Rpg Menu* 
+*≻* ${prefix}berburu
+*≻*${prefix}mancing
+*≻* ${prefix}menambang
+*≻* ${prefix}mining
+*≻* ${prefix}heal
+*≻* ${prefix}profile
+*≻* ${prefix}inventory
+*≻* ${prefix}leaderboard
+*≻* ${prefix}buy
+*≻* ${prefix}sell
+*≻* ${prefix}adventur
+  
   *TELE STICK MENU*
   *≻* ${prefix}gurastick
   *≻* ${prefix}dogestick
   *≻* ${prefix}bucinstick
   *≻* ${prefix}patrick
+  *≻* ${prefix}attp
   
   *RANDOM MENU*
   *≻* ${prefix}coffe
@@ -107,6 +128,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *RANDOM ANIME MENU*
   *≻* ${prefix}loli
   *≻* ${prefix}neko
+  *≻* ${prefix}nekoo
   *≻* ${prefix}nekochan
   *≻* ${prefix}waifu
   *≻* ${prefix}shinobu
@@ -441,13 +463,13 @@ return`  _Selamat ${salam} kak ${pushname}_
 
 //—————「 Welcome 」—————//
 exports.welcome = () => {
-	return`★──────「 *𝗪𝗲𝗹𝗰𝗼𝗺𝗲* 」 ─────★\n\n┌────────────── \n│ *𝐇𝐚𝐥𝐨 𝐤𝐚𝐤👋*  \n│≻─「 *𝐈𝐍𝐓𝐑𝐎* 」─ \n│𝐍𝐚𝐦𝐚: \n│𝐔𝐦𝐮𝐫: \n│𝐆𝐞𝐧𝐝𝐞𝐫:\n│𝐀𝐬𝐤𝐨𝐭:\n│𝐒𝐭𝐚𝐭𝐮𝐬:\n╰── 「 *𝐒𝐞𝐦𝐨𝐠𝐚 𝐁𝐞𝐭𝐚𝐡 𝐊𝐚𝐤* 」──
+	return`★──────「*𝗪𝗲𝗹𝗰𝗼𝗺𝗲*」 ─────★\n\n┌────────────── \n│ *𝐇𝐚𝐥𝐨 𝐤𝐚𝐤👋*  \n│≻─「 *𝐈𝐍𝐓𝐑𝐎* 」─ \n│𝐍𝐚𝐦𝐚: \n│𝐔𝐦𝐮𝐫: \n│𝐆𝐞𝐧𝐝𝐞𝐫:\n│𝐀𝐬𝐤𝐨𝐭:\n│𝐒𝐭𝐚𝐭𝐮𝐬:\n╰── 「 *𝐒𝐞𝐦𝐨𝐠𝐚 𝐁𝐞𝐭𝐚𝐡 𝐊𝐚𝐤* 」──
 `
 }
 
 //—————「 Leave 」—————//
 exports.leave = () => {
-	return`★──────「 *𝐆𝐨𝐨𝐝 𝐁𝐲𝐞* 」──────★\n\n┌────────────── \n│𝐆𝐨𝐨𝐝 𝐁𝐲𝐞 𝐊𝐚𝐤👋 \n│\n╰── 「 *𝐒𝐚𝐦𝐩𝐚𝐢 𝐉𝐮𝐦𝐩𝐚 𝐊𝐚𝐤* 」──
+	return`★──────「*𝐆𝐨𝐨𝐝 𝐁𝐲𝐞*」──────★\n\n┌────────────── \n│𝐆𝐨𝐨𝐝 𝐁𝐲𝐞 𝐊𝐚𝐤👋 \n│\n╰── 「 *𝐒𝐚𝐦𝐩𝐚𝐢 𝐉𝐮𝐦𝐩𝐚 𝐊𝐚𝐤* 」──
 `
 }
 
@@ -462,9 +484,10 @@ Berapapun donasi kalian akan sangat berarti 👍
 
 Thanks!
 
-—————「 *SEWA | RUN BOT* 」—————
+———「 *SEWA | RUN BOT* 」———
 
   *_SEWA BOT_* 
+  *≻* Sewa Bot Gratis/1grup (1 hari )
   *≻* Sewa Bot 15k/1grup (1 minggu)
   *≻* Sewa Bot 20k/2grup (1 bulan)
   *≻* Sewa Bot 30k/4grup (Permanen)
@@ -486,7 +509,7 @@ Thanks!
   *Minat? Langsung chat aja ya cuy 🐦*
 
   *Contact person Owner* :
-  wa.me/${ownernomer}
+  https://wa.me/message/LQNEJVLYV5HZI1
 `
 }
 
@@ -505,7 +528,7 @@ exports.groupmenu = (prefix) => {
   *≻* ${prefix}kick @user
   *≻* ${prefix}hidetag 
   *≻* ${prefix}tagall 
-  *≻* ${prefix}antilink [on/off]
+  *≻* ${prefix}antilink [on/off] + (ntralu jg tau)
   *≻* ${prefix}mute [on/off]
   *≻* ${prefix}promote @user
   *≻* ${prefix}demote @user
@@ -516,6 +539,7 @@ exports.groupmenu = (prefix) => {
   *≻* ${prefix}hapusvote
   *≻* ${prefix}bucin
   *≻* ${prefix}sound
+  *≻* ${prefix}musik
   *≻* ${prefix}bacot2
   `
 }
@@ -567,6 +591,22 @@ exports.searchmenu = (prefix) => {
   *≻* ${prefix}webtoons 
   *≻* ${prefix}drakor 
   `
+}
+
+exports.rpgmenu = (prefix) => {
+	return`
+        *Rpg Menu* 
+*≻* ${prefix}berburu
+*≻*${prefix}mancing
+*≻* ${prefix}menambang
+*≻* ${prefix}mining
+*≻* ${prefix}heal
+*≻* ${prefix}profile
+*≻* ${prefix}inventory
+*≻* ${prefix}leaderboard
+*≻* ${prefix}buy
+*≻* ${prefix}sell
+`
 }
 
 exports.telestickmenu = (prefix) => {
@@ -970,6 +1010,7 @@ exports.ownermenu = (prefix) => {
 }
 
 //tqto gsh di hps y :) kalau mai tmbhin aja nama kalian!
+// kalo gk mau sini betumbu kita 🗿
 exports.thanksto = () => {
 	return`
   *THANKS TO*

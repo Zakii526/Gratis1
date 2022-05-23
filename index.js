@@ -27,6 +27,8 @@ const { FajarNews, BBCNews, metroNews, CNNNews, iNews, KumparanNews, TribunNews,
 // Function
 const cerpen = require('./lib/cerpen')
 
+
+
 // Read Database
 let tebaklagu = db.data.game.tebaklagu = []
 let _family100 = db.data.game.family100 = []
@@ -45,7 +47,7 @@ const  { ind } = require(`./language`)
 lang = ind // Language
 
 // Type Menu
-typemenu = 'image'
+typemenu = 'gif'
 
 // Date
 moment.tz.setDefault("Asia/Jakarta").locale("id");
@@ -183,13 +185,14 @@ module.exports = chika = async (chika, m, chatUpdate, store) => {
         if (db.data.chats[m.chat].antilink) {
         if (budy.match(`chat.whatsapp.com`)) {
         reply(`「 ANTI LINK 」\n\nKamu terdeteksi mengirim link group, maaf kamu akan di kick !`)
-        if (!isBotAdmins) return reply(`Ehh bot gak admin T_T`)
+        if (!isBotAdmins) return reply('𝗢𝗵 𝗶𝘆𝗮 𝗹𝘂𝗽𝗮 𝘁𝗲𝗿𝗻𝘆𝗮𝘁𝗮 𝗮𝗸𝘂 𝗯𝘂𝗸𝗮𝗻 𝗮𝗱𝗺𝗶𝗻 (´ . .̫ . `)')
         let gclink = (`https://chat.whatsapp.com/`+await chika.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
-        if (isgclink) return reply(`Ehh maaf gak jadi, karena kamu ngirim link group ini`)
-        if (isAdmins) return reply(`Ehh maaf kamu admin`)
-        if (isCreator) return reply(`Ehh maaf kamu owner bot ku`)
+        if (isgclink) return reply(`𝗨𝗻𝘁𝘂𝗻𝗴 𝗹𝗶𝗻𝗸 𝗴𝗿𝘂𝗽 𝗶𝗻𝗶, 𝗸𝗮𝗹𝘂 𝗯𝘂𝗸𝗮𝗻 𝘂𝗱𝗮𝗵 𝗰𝘆𝗮 𝗸𝗶𝗸 (￣▽￣)`)
+        if (isAdmins) return reply('𝗨𝗽𝘀 𝗵𝗮𝗺𝗽𝗶𝗿 𝗰𝘆𝗮 𝗸𝗶𝗸, 𝘂𝗻𝘁𝘂𝗻𝗴 𝗮𝗱𝗺𝗶𝗻𝗸𝘂 ´･ᴗ･`')
+        if (isCreator) return reply(`𝗨𝗽𝘀( ･_･) 𝗟𝘂𝗽𝗮, 𝗧𝗲𝗿𝗻𝘆𝗮𝘁𝗮 𝗸𝗮𝗺𝘂 𝗼𝘄𝗻𝗲𝗿 𝗕𝗼𝘁 𝗸𝘂 ♡＾▽＾♡`)
+        m.reply('𝗗𝗮𝗱𝗮 𝗕𝗲𝗯𝗮𝗻(≧▽≦)👋. . .') 
         chika.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
@@ -223,16 +226,27 @@ omkeh4 = fs.readFileSync(`./${gaa}.mp3`)
 chika.sendMessage(from, {audio: omkeh4, mimetype:'audio/mp4', ptt:true }, {quoted:m}) 
 }
 const velo = (hehe) => {
-const bisaa = ['velo','velo1','velo2']
+const bisaa = ['velo.mp4','velo1.mp4','velo2.gif','velo3.mp4']
 const gaa = bisaa[Math.floor(Math.random() * bisaa.length)]
-omkeh4 = fs.readFileSync(`./${gaa}.mp4`)
+omkeh4 = fs.readFileSync(`./${gaa}`)
 chika.sendImageAsSticker(m.chat, omkeh4, m, { packname: global.packname, author: global.santuy })
 }
 const nangis = (hehe) => {
 omkeh4 = fs.readFileSync(`./nangis.webp`)
 chika.sendImageAsSticker(m.chat, omkeh4, m, { packname: global.packname, author: global.santuy })
 }
-
+const sticAdmin = (hehe) => {
+ano = fs.readFileSync('./admin.webp')
+chika.sendImageAsSticker(m.chat, ano, m, { packname: global.packname, author: `𝗞𝗮𝗺𝘂 𝗕𝘂𝗸𝗮𝗻 𝗮𝗱𝗺𝗶𝗻 🗿`})
+}
+const sticGroup = (hehe) => {
+ano = fs.readFileSync('./group.webp')
+chika.sendImageAsSticker(m.chat, ano, m, { packname: global.packname, author: `𝗣𝗮𝗸𝗮𝗶 𝗜𝘁𝘂 𝗱𝗶 𝗴𝗿𝘂𝗽🗿`})
+}
+const sticBotAdmin = (hehe) => {
+ano = fs.readFileSync('./botadmin.webp')
+chika.sendImageAsSticker(m.chat, ano, m, { packname: global.packname, author: `𝗕𝗼𝘁 𝗕𝘂𝗸𝗮𝗻 𝗮𝗱𝗺𝗶𝗻 🗿`})
+}
 
 
         // Respon Cmd with media
@@ -281,7 +295,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete tebaklagu[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
         }
@@ -299,7 +313,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete tebakgambar[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
         }
@@ -308,7 +322,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete tebakkata[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
         }
@@ -318,7 +332,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete caklontong[m.sender.split('@')[0]]
 		delete caklontong_desk[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
@@ -328,7 +342,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete tebakkalimat[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
         }
@@ -337,7 +351,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete tebaklirik[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
         }
@@ -346,7 +360,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ownername, m)
+                await chika.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, chika.user.name, m)
                 delete tebaktebakan[m.sender.split('@')[0]]
             } else reply('*Jawaban Salah!*')
         }
@@ -565,12 +579,11 @@ let buttons = [
                         { buttonId: 'gropen', buttonText: { displayText: '𝐒𝐚𝐲𝐚 𝐌𝐞𝐧𝐜𝐚𝐫𝐢 𝐍𝐞𝐥𝐬𝐨𝐧' }, type: 1 },
                         { buttonId: 'grclose', buttonText: { displayText: '𝐆𝐚𝐤 𝐉𝐚𝐝𝐢🐦' }, type: 1 }
                     ]
-                    await chika.sendButtonText(m.chat, buttons, `𝐈𝐲𝐚 𝐀𝐝𝐚 𝐘𝐚𝐧𝐠 𝐁𝐢𝐬𝐚 𝐒𝐚𝐲𝐚 𝐁𝐚𝐧𝐭𝐮 𝐊𝐚𝐤?\n`, chika.user.name, m)
+                    await chika.sendButtonText(m.chat, buttons, `𝐈𝐲𝐚 𝐀𝐝𝐚 𝐘𝐚𝐧𝐠 𝐁𝐢𝐬𝐚 𝐒𝐚𝐲𝐚 𝐁𝐚𝐧𝐭𝐮 𝐊𝐚𝐤 ${pushname} ?\n`, chika.user.name, m)
 break
 
 case "virtex":
-reply('《《   ֎ ⃢🇲🇨⚠️SLAYER VIRTEX⚠️‼️❌⚠️‼️🚫‼️‼️‼️〄 ⃢🇲🇨  ²⁰²⁰》》* \n *_*██VIRTEX██*_ \n*𖣘𝓜꙰⃢⃠⃠⃠⃠⃠*_🇲🇨⁘̨̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̽̈\n**ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌ą̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰ċ̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰ï̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰ă̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̱̱̱̱̩̩̩̩̜̞̞̞̞̤̤̤̝̖̖̋̋̋̌̌̌̌̎̎̎̎̎̏̏̏̏̎̎̎̎̎̎̎̎̎̎̎̎̎̎̎̔̔̔̔̓̓̓̓̓̓̕̕˺꙰˺̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̊̊̔̔̔̔̔̔ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌ą̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰ċ̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰ï̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰ă̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̱̱̱̱̩̩̩̩̜̞̞̞̞̤̤̤̝̖̖̋̋̋̌̌̌̌̎̎̎̎̎̏̏̏̏̎̎̎̎̎̎̎̎̎̎̎̎̎̎̎̔̔̔̔̓̓̓̓̓̓̕̕˺꙰˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌ą̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰ċ̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰ï̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰ă̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̱̱̱̱̩̩̩̩̜̞̞̞̞̤̤̤̝̖̖̋̋̋̌̌̌̌̎̎̎̎̎̏̏̏̏̎̎̎̎̎̎̎̎̎̎̎̎̎̎̎̔̔̔̔̓̓̓̓̓̓̕̕˺꙰*˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕*')
-
+reply('《《   ֎ ⃢🇲🇨⚠️SLAYER VIRTEX⚠️‼️❌⚠️‼️🚫‼️‼️‼️〄 ⃢🇲🇨  ²⁰²⁰》》* \n *_*██VIRTEX██*_ \n*𖣘𝓜꙰⃢⃠⃠⃠⃠⃠*_🇲🇨⁘̨̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̤̽̈\n**ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌ą̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰ċ̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰ï̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰ă̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̱̱̱̱̩̩̩̩̜̞̞̞̞̤̤̤̝̖̖̋̋̋̌̌̌̌̎̎̎̎̎̏̏̏̏̎̎̎̎̎̎̎̎̎̎̎̎̎̎̎̔̔̔̔̓̓̓̓̓̓̕̕˺꙰˺̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̊̊̔̔̔̔̔̔ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌ą̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰ċ̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰ï̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰ă̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̱̱̱̱̩̩̩̩̜̞̞̞̞̤̤̤̝̖̖̋̋̋̌̌̌̌̎̎̎̎̎̏̏̏̏̎̎̎̎̎̎̎̎̎̎̎̎̎̎̎̔̔̔̔̓̓̓̓̓̓̕̕˺꙰˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕ɱ̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢꙰̯̯̯̯̯̯̯̯๎̯๎̯ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩ͌͌͌͌͌͌͌͌͌͌͌͌ą̫̫̫̫̫̫̪̪̪̪̪̪̪̪̪̫̪̫̫̫̫̫̫̫̫̫⃟꙰ċ̴̴̴̴̴̴̴̛̛̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̜̜̜̜̜̜̬̬̬̩̱̱̓̓̓̓̓̓̔̔̔̎̎̎̊̊̊̕꙰ï̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫⃟⃢̦̦̦̦̦̦̦̦̦̦̦̦̕˺̴̴̤̤̜̤̖̣̬̬̬̞̞̱̩̬̝̝̓̓̔̔̔̔̊̊̎̎̎̔̕꙰ă̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̴̛̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̫̱̱̱̱̩̩̩̩̜̞̞̞̞̤̤̤̝̖̖̋̋̋̌̌̌̌̎̎̎̎̎̏̏̏̏̎̎̎̎̎̎̎̎̎̎̎̎̎̎̎̔̔̔̔̓̓̓̓̓̓̕̕˺꙰*˺̴̴̴̤̤̤̤̤̤̤̤̤̞̞̞̞̞̞̞̞̬̣̣̣̣̜̜̊̊̔̔̔̔̔̔̕*\n\n\n𝗔𝗽𝗮 𝗹𝗶𝗮𝘁 𝗹𝗶𝗮𝘁🐦')
 break
 
 
@@ -588,28 +601,24 @@ case 'mksih':
 case 'tanks':
 case 'mksh':
 case 'mksih':
-reply('𝗦𝗮𝗺𝗮 𝗦𝗮𝗺𝗮 𝗷𝗴 𝗸𝗮𝗸🐦')              
+reply(`𝗦𝗮𝗺𝗮 𝗦𝗮𝗺𝗮 𝗷𝗴 𝗸𝗮𝗸 ${pushname} 🐦`)              
 break
    
 case 'salken':
 if (!m.isGroup) return
-reply('salken jg kak🐦')              
+reply(`salken jg kak ${pushname} 🐦`)              
 break        
         
         
         
-        
-        
-        
-          
-        
+    
         
         
 	    case 'afk': {
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                reply(`${m.pushName} Telah Afk${text ? ': ' + text : ''}`)
+                reply(`${m.pushName} Telah Afk ${text ? ': ' + text : ''}`)
             }
             break	
         case 'ttc': case 'ttt': case 'tictactoe': {
@@ -729,10 +738,8 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
 	    case 'family100': {
-		 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
-		db.data.users[m.sender].limit -= 1 // -1 limit
                 if ('family100'+m.chat in _family100) {
-                    reply('Masih Ada Sesi Yang Belum Diselesaikan!')
+                    m.reply('Masih Ada Sesi Yang Belum Diselesaikan!')
                     throw false
                 }
                 let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/family100.json')
@@ -748,16 +755,13 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
             case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
-            if (!q) return reply(`Kirim/reply text dengan caption ${prefix + command}`)
+            if (!m.quoted && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-            reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
+            m.reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
             case 'tebak': {
-            	reply(' Gemes ini masih sedikit ngebug, Tapi kalau mau coba silahkan')
-            	 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
-		        db.data.users[m.sender].limit -= 1 // -1 limit
-                if (!q) return reply(`Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`)
+                if (!text) throw `Example : ${prefix + command} lagu\n\nOption : \n1. lagu\n2. gambar\n3. kata\n4. kalimat\n5. lirik\n6.lontong`
                 if (args[0] === "lagu") {
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                     let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
@@ -769,7 +773,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ownername, m)
+                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, chika.user.name, m)
                     delete tebaklagu[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'gambar') {
@@ -782,7 +786,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ownername, m)
+                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, chika.user.name, m)
                     delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kata') {
@@ -795,7 +799,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ownername, m)
+                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, chika.user.name, m)
                     delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kalimat') {
@@ -808,7 +812,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ownername, m)
+                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, chika.user.name, m)
                     delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lirik') {
@@ -821,7 +825,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ownername, m)
+                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, chika.user.name, m)
                     delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lontong') {
@@ -835,7 +839,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, ownername, m)
+                    chika.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, chika.user.name, m)
                     delete caklontong[m.sender.split('@')[0]]
 		    delete caklontong_desk[m.sender.split('@')[0]]
                     }
@@ -845,7 +849,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             case 'kuismath': case 'math': {
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) throw "Masih Ada Sesi Yang Belum Diselesaikan!"
                 let { genMath, modes } = require('./lib/math')
-                if (!q) return reply(`Mode: ${Object.keys(modes).join(' | ')}\nContoh penggunaan: ${prefix}math medium`)
+                if (!text) throw `Mode: ${Object.keys(modes).join(' | ')}\nContoh penggunaan: ${prefix}math medium`
                 let result = await genMath(text.toLowerCase())
                 chika.sendText(m.chat, `*Berapa hasil dari: ${result.soal.toLowerCase()}*?\n\nWaktu: ${(result.waktu / 1000).toFixed(2)} detik`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
@@ -853,7 +857,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 await sleep(result.waktu)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    reply("Waktu Habis\nJawaban: " + kuismath[m.sender.split('@')[0]])
+                    m.reply("Waktu Habis\nJawaban: " + kuismath[m.sender.split('@')[0]])
                     delete kuismath[m.sender.split('@')[0]]
                 }
             }
@@ -862,11 +866,17 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
 
 //—————「 Auto VN dll 」—————//
 
-case 'onichan':
-case 'oni':
-case 'chan':
-omkeh2 = fs.readFileSync('./onichan.mp3')
-chika.sendMessage(from,{audio: omkeh2, mimetype:'audio/mp4', ptt:true }, {quoted:m}) 
+case 'attp':
+		if (!text) throw reply(`Example ${prefix + command} ${pushname}`)
+		reply(mess.wait)
+		var ano = await fetchJson(api('xteam', '/attp', { file: '', text: teks }, 'apikey'))
+		encmedia = await chika.sendImageAsSticker(from, ano , m, { packname: global.packname, author: `By ${pushname}` , })
+		await fs.unlinkSync(encmedia)
+break
+
+case "onichan":
+	omkeh2 = fs.readFileSync('./onichan.mp3')
+	chika.sendMessage(from,{audio: omkeh2, mimetype:'audio/mp4', ptt:true }, {quoted:m}) 
  break   
  
  
@@ -972,7 +982,7 @@ chika.sendMessage(from,{audio: omkeh5, mimetype:'audio/mp4', ptt:true }, {quoted
     case "gay":
     case "terpedo":
     case "wibu":{
- if (!m.isGroup) throw mess.group
+ if (!m.isGroup) throw sticGroup(from)
             let member = participants.map(u => u.id)
             let oi = m.sender
             let ytm = member[Math.floor(Math.random() * member.length)]
@@ -989,7 +999,7 @@ break
 
 
 case 'yatim':{
- if (!m.isGroup) throw mess.group
+ if (!m.isGroup) throw sticGroup(from)
             let member = participants.map(u => u.id)
             let oi = m.sender
             let ytm = member[Math.floor(Math.random() * member.length)]
@@ -1004,7 +1014,7 @@ case 'yatim':{
 break
 
             case 'jodohku': {
-            if (!m.isGroup) throw mess.group
+            if (!m.isGroup) throw sticGroup(from)
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -1023,7 +1033,7 @@ break
 case 'ayang':
 case 'syg':
 case 'sayang': {
-            if (!m.isGroup) throw mess.group
+            if (!m.isGroup) throw sticGroup(from)
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -1041,7 +1051,7 @@ case 'sayang': {
 
 case 'selingkuh':
 case 'ngewe': {
-            if (!m.isGroup) throw mess.group
+            if (!m.isGroup) throw sticGroup(from)
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -1059,7 +1069,7 @@ case 'ngewe': {
             break
 
             case 'jadian': {
-            if (!m.isGroup) throw mess.group
+            if (!m.isGroup) throw sticGroup(from)
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -1076,7 +1086,7 @@ case 'ngewe': {
             break
 
             case 'apakah':
-				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
+				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} saya menjadi wibu`)
 					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Mungkin','ya nda tau ko tanya saya']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
 chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Pertanyaan : Apakah ${q}\n│\n│Jawaban : ${kah}\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
@@ -1096,69 +1106,62 @@ case 'bagaimanakah':
 					const gimana = ['Gak Gimana2', 'Sulit Itu Bro', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','astaghfirallah Beneran???','Pusing ah','Owhh Begitu:(','Yang Sabar Ya Bos:(','Gimana yeee']
 					const ya = gimana[Math.floor(Math.random() * gimana.length)]
 chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Pertanyaan : ${q}\n│\n│Jawaban : ${ya}\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
-
 					break
-case 'rate':
- 
-				if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} Gambar aku`)
+
+                    case 'rate':
+				    if (!q) return reply(`Penggunaan ${command} text\n\nContoh : ${command} Gambar aku`)
 					const ra = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const te = ra[Math.floor(Math.random() * ra.length)]
-chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Rate : ${q}\n│\n│Jawaban : *${te}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
-
+                    chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Rate : ${q}\n│\n│Jawaban : *${te}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
 					break
+
 case 'gantengcek':
-  case 'cekganteng':
-   
-				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Nelson`)
+case 'cekganteng':
+				    if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} Nelson`)
 					const gan = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
-chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Nama : ${q}\n│\n│Jawaban : *${teng}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
-
+                    chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Nama : ${q}\n│\n│Jawaban : *${teng}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
 					break
+
 case 'cantikcek':
-  case 'cekcantik':
-   
-				if (!q) return reply(`Yang Mau di Cek apaan Titit ?`)
+case 'cekcantik': 
+				    if (!q) return reply(`Yang Mau di Cek apaan Titit ?`)
 					const can = ['5', '10', '15' ,'20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
-chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Nama : ${q}\n│\n│Jawaban : *${tik}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
-
+                    chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Nama : ${q}\n│\n│Jawaban : *${tik}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
 					break
+
 case 'sangecek':
-  case 'ceksange':
-    case 'gaycek':
-      case 'cekgay':
-        case 'lesbicek':
-          case 'ceklesbi':
-				if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} ${pushname}`)
+case 'ceksange':
+case 'gaycek':
+case 'cekgay':
+case 'lesbicek':
+case 'ceklesbi':
+					if (!q) return reply(`Penggunaan ${command} Nama\n\nContoh : ${command} ${pushname}`)
 					const sangeh = ['5', '10', '15','20', '25','30','35','40','45','50','55','60','65','70','75','80','85','90','100']
 					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
-chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Nama : ${q}\n│\n│Jawaban : *${sange}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
-
+                    chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Nama : ${q}\n│\n│Jawaban : *${sange}%*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
 					break
+
 case '.kapankah':
-				if (!q) return reply(`Penggunaan ${command} Pertanyaan\n\nContoh : ${command} Saya Mati`)
+				    if (!q) return reply(`Penggunaan ${command} Pertanyaan\n\nContoh : ${command} Saya Mati`)
 					const kapan = ['5 Hari Lagi', '10 Hari Lagi', '15 Hari Lagi','20 Hari Lagi', '25 Hari Lagi','30 Hari Lagi','35 Hari Lagi','40 Hari Lagi','45 Hari Lagi','50 Hari Lagi','55 Hari Lagi','60 Hari Lagi','65 Hari Lagi','70 Hari Lagi','75 Hari Lagi','80 Hari Lagi','85 Hari Lagi','90 Hari Lagi','100 Hari Lagi','5 Bulan Lagi', '10 Bulan Lagi', '15 Bulan Lagi','20 Bulan Lagi', '25 Bulan Lagi','30 Bulan Lagi','35 Bulan Lagi','40 Bulan Lagi','45 Bulan Lagi','50 Bulan Lagi','55 Bulan Lagi','60 Bulan Lagi','65 Bulan Lagi','70 Bulan Lagi','75 Bulan Lagi','80 Bulan Lagi','85 Bulan Lagi','90 Bulan Lagi','100 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','Besok','Lusa',`Abis Command Ini Juga Lu ${q}`]
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
-chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Pertanyaan : ${q}\n│\n│Jawaban : *${kapankah}*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
+                    chika.sendMessage(from, { text: `╭─「 *Semoga Beruntung* 」\n│\n│Pertanyaan : ${q}\n│\n│Jawaban : *${kapankah}*\n╰────\n\n 𝙉𝙚𝙡𝘽𝙤𝙩-𝐌𝐃` }, { quoted: m })
 					break
+
 case 'wangy':
               if (!q) return reply (`Contoh : .𝗪𝗮𝗻𝗴𝘆 𝗡𝗲𝗹𝘀𝗼𝗻`)
               qq = q.toUpperCase()
               awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaaah baunya rambut ${qq} wangyy aku mau nyiumin aroma wangynya ${qq} AAAAAAAAH ~ Rambutnya.... aaah rambutnya juga pengen aku elus-elus ~~ AAAAAH ${qq} keluar pertama kali di anime juga manis ❤️ ❤️ ❤️ banget AAAAAAAAH ${qq} AAAAA LUCCUUUUUUUUUUUUUUU............ ${qq} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️apa ? ${qq} itu gak nyata ? Cuma HALU katamu ? nggak, ngak ngak ngak ngak NGAAAAAAAAK GUA GAK PERCAYA ITU DIA NYATA NGAAAAAAAAAAAAAAAAAK PEDULI BANGSAAAAAT !! GUA GAK PEDULI SAMA KENYATAAN POKOKNYA GAK PEDULI. ❤️ ❤️ ❤️ ${qq} gw ... ${qq} di laptop ngeliatin gw, ${qq} .. kamu percaya sama aku ? aaaaaaaaaaah syukur ${q} aku gak mau merelakan ${qq} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH GUA MASIH PUNYA ${qq} SENDIRI PUN NGGAK SAMA AAAAAAAAAAAAAAH`
-             reply(awikwok)
+              reply(awikwok)
               break
 case 'cekmati':
               if (!q) return reply(`Invalid!\n\nYg mau di cek siapa kontol?`)
               predea = await axios.get(`https://api.agify.io/?name=${q}`)
               reply(`Nama : ${predea.data.name}\n*Mati Pada Umur :* ${predea.data.age} Tahun.\n\n_Cepet Cepet Tobat Bro Soalnya Mati ga ada yang tau_`)
               break
-case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
-            if (!m.quoted && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
-            ter = command[1].toLowerCase()
-            tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-            reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
-            break
+
             case 'react': {
                 if (!isCreator) return reply(mess.owner)
                 reactionMessage = {
@@ -1193,33 +1196,33 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
             }
             break
 	case 'kick': {
-		if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+		if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await chika.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
 	case 'add': {
-		if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+		if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await chika.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
 	case 'promote': {
-		if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+		if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await chika.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
 	case 'demote': {
-		if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+		if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await chika.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
@@ -1237,17 +1240,17 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
 	}
 	break
 	    case 'setname': case 'setsubject': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (!text) throw 'Text ?'
                 await chika.groupUpdateSubject(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
             break
           case 'setdesc': case 'setdesk': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (!text) throw 'Text ?'
                 await chika.groupUpdateDescription(m.chat, text).then((res) => reply(mess.success)).catch((err) => reply(jsonformat(err)))
             }
@@ -1263,8 +1266,8 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 }
                 break
            case 'setppgroup': case 'setppgrup': case 'setppgc': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (!quoted) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
                 if (!/image/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
                 if (/webp/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
@@ -1274,11 +1277,11 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 }
                 break
             case 'tagall': {
-                if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
+                if (!m.isGroup) throw sticGroup(from)
+                if (!isBotAdmins) throw sticBotAdmin(from)
+                if (!isAdmins) throw sticAdmin(from)
              
-let teks = `════✪〘 *👥 Tag All* 〙✪════\n ➲ *𝐏𝐞𝐬𝐚𝐧 : ${q ? q : '𝐓𝐢𝐝𝐚𝐤 𝐀𝐝𝐚 𝐏𝐞𝐬𝐚𝐧'}*\n\n┌───⊷ *TAG ALL* ⊶\n`
+let teks = `════✪〘 *👥 Tag All* 〙✪════\n ➲ *𝐏𝐞𝐬𝐚𝐧 : ${q ? q : '𝐓𝐢𝐝𝐚𝐤 ??𝐝𝐚 𝐏𝐞𝐬𝐚𝐧'}*\n\n┌───⊷ *TAG ALL* ⊶\n`
                  
                 for (let mem of participants) {
                 teks += `├>  @${mem.id.split('@')[0]}\n`
@@ -1288,9 +1291,9 @@ let teks = `════✪〘 *👥 Tag All* 〙✪════\n ➲ *𝐏𝐞
                 }
                 break
                 case 'hidetag': {
-            if (!m.isGroup) return reply(mess.group)
-            if (!isBotAdmins) return reply(mess.botAdmin)
-            if (!isAdmins) return reply(mess.admin)
+            if (!m.isGroup) return sticGroup(from)
+            if (!isBotAdmins) return sticBotAdmin(from)
+            if (!isAdmins) return sticAdmin(from)
             chika.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
@@ -1308,7 +1311,7 @@ let teks = `════✪〘 *👥 Tag All* 〙✪════\n ➲ *𝐏𝐞
 	    }
 	    break
                case 'vote': {
-            if (!m.isGroup) return reply(mess.group)
+            if (!m.isGroup) return sticGroup(from)
             if (m.chat in vote) return reply(`_Masih ada vote di chat ini!_\n\n*${prefix}hapusvote* - untuk menghapus vote`)
             if (!q) return reply(`Masukkan Alasan Melakukan Vote, Example: *${prefix + command} Owner Ganteng*`)
             reply(`Vote dimulai!\n\n*${prefix}upvote* - untuk ya\n*${prefix}devote* - untuk tidak\n*${prefix}cekvote* - untuk mengecek vote\n*${prefix}hapusvote* - untuk menghapus vote`)
@@ -1350,7 +1353,7 @@ let buttonsVote = [
 	    }
             break
                case 'upvote': {
-            if (!m.isGroup) return reply(mess.group)
+            if (!m.isGroup) return sticGroup(from)
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
@@ -1392,7 +1395,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 	    }
              break
                 case 'devote': {
-            if (!m.isGroup) return reply(mess.group)
+            if (!m.isGroup) return sticGroup(from)
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
@@ -1435,7 +1438,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
             break
                  
 case 'cekvote':
-if (!m.isGroup) return reply(mess.group)
+if (!m.isGroup) return sticGroup(from)
 if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
 teks_vote = `*「 VOTE 」*
 
@@ -1463,16 +1466,16 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 chika.sendTextWithMentions(m.chat, teks_vote, m)
 break
 		case 'deletevote': case'delvote': case 'hapusvote': {
-            if (!m.isGroup) return reply(mess.group)
+            if (!m.isGroup) return sticGroup(from)
             if (!(m.chat in vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${prefix}vote* - untuk memulai vote`
             delete vote[m.chat]
             reply('Berhasil Menghapus Sesi Vote Di Grup Ini')
 	    }
             break
                case 'group': case 'grup': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (args[0] === 'close'){
                     await chika.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Sukses Menutup Group`)).catch((err) => reply(jsonformat(err)))
                 } else if (args[0] === 'open'){
@@ -1488,9 +1491,9 @@ break
             }
             break
             case 'editinfo': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
              if (args[0] === 'open'){
                 await chika.groupSettingUpdate(m.chat, 'unlocked').then((res) => reply(`Sukses Membuka Edit Info Group`)).catch((err) => reply(jsonformat(err)))
              } else if (args[0] === 'close'){
@@ -1506,9 +1509,9 @@ break
             }
             break
             case 'antilink': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].antilink) return reply(`Sudah Aktif Sebelumnya`)
                 db.data.chats[m.chat].antilink = true
@@ -1527,9 +1530,9 @@ break
              }
              break
              case 'mute': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return reply(`Sudah Aktif Sebelumnya`)
                 db.data.chats[m.chat].mute = true
@@ -1548,15 +1551,15 @@ break
              }
              break
             case 'linkgroup': case 'linkgc': {
-                if (!m.isGroup) return reply(mess.group)
+                if (!m.isGroup) return sticGroup(from)
                 let response = await chika.groupInviteCode(m.chat)
                 chika.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
             case 'ephemeral': {
-                if (!m.isGroup) return reply(mess.group)
-                if (!isBotAdmins) return reply(mess.botAdmin)
-                if (!isAdmins) return reply(mess.admin)
+                if (!m.isGroup) return sticGroup(from)
+                if (!isBotAdmins) return sticBotAdmin(from)
+                if (!isAdmins) return sticAdmin(from)
                 if (!text) throw 'Masukkan value enable/disable'
                 if (args[0] === 'enable') {
                     await chika.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
@@ -1690,6 +1693,8 @@ break
                     chika.sendText(m.chat, '═══✪〘 *👥 list online* 〙✪═══\n' + online.map(v => '├>  @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
+
+
             case 'sticker': case 's': case 'stickergif': case 'sgif': {
             if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
             reply(mess.wait)
@@ -2107,7 +2112,8 @@ case 'webtonsearch': case 'webtoon':
                 })
             break
              case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
-                reply(mess.wait)
+         if (!m.isGroup) throw sticGroup(from)      
+ reply(mess.wait)
                 chika.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
             }
             break
@@ -2986,6 +2992,8 @@ Untuk Download Media Silahkan Klik salah satu Button dibawah ini atau masukkan c
 		chika.sendMessage(m.chat, {document: yy, mimetype: 'application/pdf', fileName: `iqra${text}.pdf`}, {quoted:m}).catch ((err) => reply(oh))
 		}
 		break
+
+
 		case 'juzamma': {
 		if (args[0] === 'pdf') {
 		reply(mess.wait)
@@ -3477,16 +3485,30 @@ const templateMessage = {
 text: `─────── 〔 𝗕𝗨𝗖𝗜𝗡 〕 ───────\n\n${gaa}`,footer: `© ${ownername}`,
 templateButtons: [
 {
-index: 1, 
-urlButton: {
-displayText: '𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤', 
-url: `${youtube}`
-}
-},
-],
+                                urlButton: {
+                                    displayText: '𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤',
+                                    url: `${youtube}`
+                                }
+                            }, {
+                                urlButton: {
+                                    displayText: `𝐌𝐲 𝐆𝐫𝐮𝐩`,
+                                    url: `${mygc}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Donasi',
+                                    id: 'donasi'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Menu',
+                                    id: 'menu'
+                                }
+                            }],
 }
 const sendm = chika.sendMessage(from, templateMessage)
 }
+reply('Emang lu punya pacar?🤨')
 break
 case 'bacot2': {
 	const bisaa = ['Kamu suka kopi nggak? Aku sih suka. Tau kenapa alesannya? Kopi itu ibarat kamu, pahit sih tapi bikin candu jadi pingin terus.',
@@ -3589,7 +3611,12 @@ url: `${youtube}`
 const sendm = chika.sendMessage(from, templateMessage)
             }
             break
+
+
+
+
 case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite':case 'yeet':case 'neko2':case 'bully':case 'bonk':case 'wink':case 'poke':case 'nom':case 'slap':case 'smile':case 'wave':case 'awoo':case 'blush':case 'smug':case 'glomp':case 'happy':case 'dance':case 'cringe':case 'cuddle':case 'highfive':case 'shinobu':case 'megumin2':case 'handhold':
+if (!m.isGroup) throw sticGroup(from)
 					 if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) // respon ketika limit habis
 		            db.data.users[m.sender].limit -= 1 // -1 limit
                     reply(mess.wait)
@@ -3599,6 +3626,7 @@ case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite'
 					})
 					break
 case 'meguminn':
+if (!m.isGroup) throw sticGroup(from)
 					reply(mess.wait)
 					axios.get(`https://waifu.pics/api/sfw/megumin`)
 					.then(({data}) => {
@@ -3606,6 +3634,7 @@ case 'meguminn':
 					})
 					break
 case 'nekoo': case 'loli':
+if (!m.isGroup) throw sticGroup(from)
 					m.reply(mess.wait)
 					axios.get(`https://api.waifu.pics/sfw/neko`)
 					.then(({data}) => {
@@ -3613,6 +3642,7 @@ case 'nekoo': case 'loli':
 					})
 					break
 case 'nekochan':
+if (!m.isGroup) throw sticGroup(from)
 					m.reply(mess.wait)
 					axios.get(`https://waifu.pics/api/sfw/awoo`)
 					.then(({data}) => {
@@ -3620,6 +3650,7 @@ case 'nekochan':
 					})
 					break
   case 'waifu': 
+  if (!m.isGroup) throw sticGroup(from)
 					reply(mess.wait)
 					axios.get(`https://api.waifu.pics/sfw/waifu`)
 					.then(({data}) => {
@@ -3936,6 +3967,10 @@ break
 case 'donasi': case 'donate':
 var riych = await getBuffer(picak+'Donasi')
 await chika.send5ButImg(from, `` + '' + lang.donasi(ownernomer), `  © ${ownername}`,riych, [{"urlButton": {"displayText": "𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤","url": `${youtube}`}},{"urlButton": {"displayText": `𝐌𝐲 𝐆𝐫𝐮𝐩`,"url": `${mygc}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
+break
+case 'rpgmenu':
+var riych = await getBuffer(picak+'Rpg Menu')
+await chika.send5ButImg(from, `` + '' + lang.rpgmenu(prefix), `© ${ownername}`,riych, [{"urlButton": {"displayText": "𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤","url": `${youtube}`}},{"urlButton": {"displayText": `𝐌𝐲 𝐆𝐫𝐮𝐩`,"url": `${mygc}`}},{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},{"quickReplyButton": {"displayText": "Back List","id": 'command'}}] )
 break
 case 'thanksto': case 'tqto':
 var riych = await getBuffer(picak+'Contributors')

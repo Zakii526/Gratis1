@@ -13,12 +13,14 @@ const chalk = require('chalk')
 global.APIs = {
 //gausah di apa² in!
 zenz: 'https://zenzapis.xyz',
+xteam: 'https://api.xteam.xyz',
 }
 
 //—————「 Website Apikey 」—————//
 global.APIKeys = {
 //gausah di apa² in, udah free apikey :)
 'https://zenzapis.xyz': 'BagasPrdn',
+'https://api.xteam.xyz': 'cristian9407',
 }
 
 //—————「 Setting Owner 」—————//
@@ -55,6 +57,8 @@ global.limitawal = {
 premium: "Infinity",
 free: 15,
 }
+   
+   
 
 //—————「 Set Image 」—————//
 //terserah mau ubah apa nggak, menurut gua jangan di ubah!
