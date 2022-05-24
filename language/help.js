@@ -15,7 +15,6 @@ Jika Kamu Menemukan Semacam Bug Atau Kesalahan Mohon Dimaklumi  Ya, kalau gak ma
 Peraturannya Jangan di spam🗿
 gak terima Yok betumbu lagi 🗿
 
-*⏰ Time Server : ${time}*
 
 `
 }
@@ -99,19 +98,7 @@ return`  _Selamat ${salam} kak ${pushname}_
   *≻* ${prefix}webtoons 
   *≻* ${prefix}drakor 
   
-          *Rpg Menu* 
-*≻* ${prefix}berburu
-*≻*${prefix}mancing
-*≻* ${prefix}menambang
-*≻* ${prefix}mining
-*≻* ${prefix}heal
-*≻* ${prefix}profile
-*≻* ${prefix}inventory
-*≻* ${prefix}leaderboard
-*≻* ${prefix}buy
-*≻* ${prefix}sell
-*≻* ${prefix}adventur
-  
+          
   *TELE STICK MENU*
   *≻* ${prefix}gurastick
   *≻* ${prefix}dogestick
@@ -591,22 +578,6 @@ exports.searchmenu = (prefix) => {
   *≻* ${prefix}webtoons 
   *≻* ${prefix}drakor 
   `
-}
-
-exports.rpgmenu = (prefix) => {
-	return`
-        *Rpg Menu* 
-*≻* ${prefix}berburu
-*≻*${prefix}mancing
-*≻* ${prefix}menambang
-*≻* ${prefix}mining
-*≻* ${prefix}heal
-*≻* ${prefix}profile
-*≻* ${prefix}inventory
-*≻* ${prefix}leaderboard
-*≻* ${prefix}buy
-*≻* ${prefix}sell
-`
 }
 
 exports.telestickmenu = (prefix) => {

@@ -247,7 +247,14 @@ const sticBotAdmin = (hehe) => {
 ano = fs.readFileSync('./botadmin.webp')
 chika.sendImageAsSticker(m.chat, ano, m, { packname: global.packname, author: `𝗕𝗼𝘁 𝗕𝘂𝗸𝗮𝗻 𝗮𝗱𝗺𝗶𝗻 🗿`})
 }
-
+const Sesat2 = (hehe) => {
+ano = fs.readFileSync('./Ini.webp')
+chika.sendImageAsSticker(m.chat, ano, m, { packname: global.packname, author: `𝗣𝗮𝗸𝗮𝗶 𝗜𝘁𝘂 𝗱𝗶 𝗴𝗿𝘂𝗽🗿`})
+}
+const Sesat = (hehe) => {
+ano = fs.readFileSync('./Sesat.webp')
+chika.sendImageAsSticker(m.chat, ano, m, { packname: global.packname, author: `𝗣𝗮𝗸𝗮𝗶 𝗜𝘁𝘂 𝗱𝗶 𝗴𝗿𝘂𝗽🗿`})
+}
 
         // Respon Cmd with media
         if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.data.sticker)) {
@@ -866,13 +873,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
 
 //—————「 Auto VN dll 」—————//
 
-case 'attp':
-		if (!text) throw reply(`Example ${prefix + command} ${pushname}`)
-		reply(mess.wait)
-		var ano = await fetchJson(api('xteam', '/attp', { file: '', text: teks }, 'apikey'))
-		encmedia = await chika.sendImageAsSticker(from, ano , m, { packname: global.packname, author: `By ${pushname}` , })
-		await fs.unlinkSync(encmedia)
-break
+
 
 case "onichan":
 	omkeh2 = fs.readFileSync('./onichan.mp3')
@@ -1725,6 +1726,42 @@ memek = await chika.sendImageAsSticker(m.chat, meme, m, { packname: global.packn
 await fs.unlinkSync(memek)
 }
 break
+case 'gura':
+case 'gurastick':{
+var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/gura')
+var wifegerak = ano.split('\n')
+var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
+encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
+await fs.unlinkSync(encmedia)
+}
+break
+case 'doge':
+case 'dogestick':{
+var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/anjing')
+var wifegerak = ano.split('\n')
+var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
+encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
+await fs.unlinkSync(encmedia)
+}
+break
+case 'bucinstick':
+case 'bucinp' :{
+var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/bucin')
+var wifegerak = ano.split('\n')
+var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
+encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
+await fs.unlinkSync(encmedia)
+}
+break
+case 'patrik':
+case 'patrick': {
+var ano = await fetchJson('https://raw.githubusercontent.com/rashidsiregar28/data/main/patrik')
+var wifegerak = ano.split('\n')
+var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
+encmedia = await chika.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
+await fs.unlinkSync(encmedia)
+}
+break
 
             case 'ebinary': {
             if (!m.quoted.text && !text) throw `Kirim/reply text dengan caption ${prefix + command}`
@@ -2111,7 +2148,18 @@ case 'webtonsearch': case 'webtoon':
                     reply(mess.error)
                 })
             break
-             case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
+case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
+         if (!m.isGroup) throw Sesat(from) 
+         if (!isBotAdmins) throw Sesat(from)
+         if (!isAdmins) throw Sesat(from)     
+         reply(mess.wait)
+         chika.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })            
+         setTimeout( () => {
+         Sesat2(from)    
+         }, 1200)
+  }
+            break
+             case 'husbu': case 'neko': case 'shinobu': case 'megumin': {
          if (!m.isGroup) throw sticGroup(from)      
  reply(mess.wait)
                 chika.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
@@ -3549,13 +3597,26 @@ const templateMessage = {
 text: `─────── 〔 𝗕𝗔𝗖𝗢𝗧 〕 ───────\n\n${gaa}`,footer: `© ${ownername}`,
 templateButtons: [
 {
-index: 1, 
-urlButton: {
-displayText: '𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤', 
-url: `${youtube}`
-}
-},
-],
+                                urlButton: {
+                                    displayText: '𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤',
+                                    url: `${youtube}`
+                                }
+                            }, {
+                                urlButton: {
+                                    displayText: `𝐌𝐲 𝐆𝐫𝐮𝐩`,
+                                    url: `${mygc}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Donasi',
+                                    id: 'donasi'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Menu',
+                                    id: 'menu'
+                                }
+                            }],
 }
 const sendm = chika.sendMessage(from, templateMessage)
 }
@@ -3600,13 +3661,26 @@ const templateMessage = {
 text: '𝗧𝘂𝗵 𝗞𝗮𝗸 𝗣𝗮𝗰𝗮𝗿𝗸𝘂 𝗘𝗵𝗵 \n𝗠𝗮𝗸𝘀𝘂𝗱𝗻𝘆𝗮 𝗢𝘄𝗻𝗲𝗿 𝗞𝘂 (≧▽≦)',footer: `© ${ownername}`,
 templateButtons: [
 {
-index: 1, 
-urlButton: {
-displayText: '𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤', 
-url: `${youtube}`
-}
-},
-],
+                                urlButton: {
+                                    displayText: '𝐌𝐲 𝐓𝐢𝐤𝐓𝐨𝐤',
+                                    url: `${youtube}`
+                                }
+                            }, {
+                                urlButton: {
+                                    displayText: `𝐌𝐲 𝐆𝐫𝐮𝐩`,
+                                    url: `${mygc}`
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Donasi',
+                                    id: 'donasi'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Menu',
+                                    id: 'menu'
+                                }
+                            }],
 }
 const sendm = chika.sendMessage(from, templateMessage)
             }

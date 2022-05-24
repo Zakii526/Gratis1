@@ -13,16 +13,13 @@ const chalk = require('chalk')
 global.APIs = {
 //gausah di apa² in!
 zenz: 'https://zenzapis.xyz',
-xteam: 'https://api.xteam.xyz',
 }
 
 //—————「 Website Apikey 」—————//
 global.APIKeys = {
 //gausah di apa² in, udah free apikey :)
 'https://zenzapis.xyz': 'BagasPrdn',
-'https://api.xteam.xyz': 'cristian9407',
 }
-
 //—————「 Setting Owner 」—————//
 global.owner = ['6281241100804','6281241100804','6281241100804'] //ubah jadi nomor mu, note tanda ' gausah di hapus!
 global.premium = ['6281241100804'] //ubah jadi nomor mu, note tanda ' gausah di hapus!
