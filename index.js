@@ -47,7 +47,7 @@ const  { ind } = require(`./language`)
 lang = ind // Language
 
 // Type Menu
-typemenu = 'gif'
+typemenu = 'image'
 
 // Date
 moment.tz.setDefault("Asia/Jakarta").locale("id");
